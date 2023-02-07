@@ -166,7 +166,7 @@ export function getVirtualEnvironmentName() {
     return `ubuntu-${match[1]}.04`
   }
   
-  let match = imageOS.match(/^self(\d+)/) // e.g. self-hosted
+  let match = imageOS.match(/^self-.*/) // e.g. self-hosted
   if (match) {
     return `ubuntu-${match[1]}.04`
   }
