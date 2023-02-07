@@ -48,7 +48,7 @@ export async function measure(name, block) {
 }
 
 export function isHeadVersion(rubyVersion) {
-  return ['head', 'debug',  'mingw', 'mswin', 'ucrt'].includes(rubyVersion)
+  return ['head', 'debug', 'mingw', 'mswin', 'ucrt'].includes(rubyVersion)
 }
 
 export function isStableVersion(rubyVersion) {
@@ -165,11 +165,6 @@ export function getVirtualEnvironmentName() {
   if (match) {
     return `ubuntu-${match[1]}.04`
   }
-  
-  match = imageOS.match(/^self-.*/) // e.g. self-hosted
-  if (match) {
-    return `ubuntu-${match[1]}.04`
-  }
 
   match = imageOS.match(/^macos(\d{2})(\d+)?/) // e.g. macos1015, macos11
   if (match) {
@@ -184,10 +179,9 @@ export function getVirtualEnvironmentName() {
   if (match) {
     return `windows-20${match[1]}`
   }
-  
+
   return "ubuntu-22.04" // return ubuntu for self-hosted
 
-  throw new Error(`Unknown ImageOS ${imageOS}`)
 }
 
 export function shouldUseToolCache(engine, version) {
