@@ -166,7 +166,7 @@ export function getVirtualEnvironmentName() {
     return `ubuntu-${match[1]}.04`
   }
   
-  let match = imageOS.match(/^self-.*/) // e.g. self-hosted
+  match = imageOS.match(/^self-.*/) // e.g. self-hosted
   if (match) {
     return `ubuntu-${match[1]}.04`
   }
@@ -185,7 +185,7 @@ export function getVirtualEnvironmentName() {
     return `windows-20${match[1]}`
   }
   
-  return 'ubuntu-22.04' // return ubuntu for self-hosted
+  return "ubuntu-22.04" // return ubuntu for self-hosted
 
   throw new Error(`Unknown ImageOS ${imageOS}`)
 }
